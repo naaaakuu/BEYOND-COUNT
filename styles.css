@@ -1,440 +1,421 @@
 /* ==========================================================================
-   BEYOND COUNT - Ancient Indian Science Exhibition Theme
+   BEYOND COUNT - Minimalist Cute Ancient Jain Aesthetic (Mobile-First)
    ========================================================================== */
 
 :root {
-  --sandstone-dark: #120a06;
-  --sandstone-deep: #1c110a;
-  --sandstone-mid: #2c1a0e;
-  --sandstone-warm: #4a2e1b;
-  --terracotta: #a6421a;
-  --terracotta-bright: #c8501e;
-  --saffron: #e66b1a;
-  --saffron-gold: #f29c2a;
-  --gold-antique: #c89b3c;
-  --gold-leaf: #e5b958;
-  --gold-bright: #ffd56b;
-  --brass-rim: #8c6828;
-  --marigold: #ff9900;
-  --parchment: #f6efe2;
-  --parchment-dim: #e3d3bd;
-  --ink-ancient: #22150d;
-  --glass-reflection: rgba(255, 255, 255, 0.28);
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(229, 185, 88, 0.35);
-  --glass-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
-  --font-serif: 'Cinzel Decorative', 'Rozha One', 'Georgia', serif;
-  --font-title: 'Cinzel', 'Playfair Display', 'Palatino', serif;
-  --font-body: 'Cormorant Garamond', 'Garamond', serif;
-  --font-sans: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  /* Peaceful Ancient Jain Marble & Sandalwood Palette */
+  --jain-bg: #faf7f2;
+  --jain-surface: #ffffff;
+  --jain-card-bg: #fdfbf7;
+  --jain-marble: #f4efe6;
+  --jain-sandstone: #ebe1d1;
+  --jain-border: #e3d7c3;
+  --jain-border-light: #eee5d8;
+  
+  /* Traditional Accents: Saffron, Antique Gold, Terracotta, Coral */
+  --saffron: #e66c2c;
+  --saffron-soft: #fff3ec;
+  --saffron-border: #f8c9b0;
+  --gold: #b88628;
+  --gold-light: #f5eedc;
+  --gold-bright: #d4a037;
+  --coral-pink: #ff5c8a;
+  --coral-soft: #ffeef3;
+  --terracotta: #a84724;
+  --jain-green: #3b7a57;
+  --jain-green-soft: #ebf5ee;
+  
+  /* Typography & Ink */
+  --ink-primary: #241c15;
+  --ink-secondary: #5e5246;
+  --ink-muted: #8c7e70;
+  
+  /* Glassmorphism */
+  --glass-stroke: rgba(220, 190, 150, 0.45);
+  --glass-fill: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 10px 25px rgba(100, 70, 40, 0.08);
+  
+  --font-serif: 'Rozha One', 'Cinzel', 'Georgia', serif;
+  --font-title: 'Cinzel', 'Playfair Display', serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  background-color: var(--sandstone-dark);
-  color: var(--parchment);
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.6;
+  background-color: var(--jain-bg);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  line-height: 1.5;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(230, 107, 26, 0.15), transparent 60%),
-    radial-gradient(circle at 15% 40%, rgba(200, 80, 30, 0.08), transparent 40%),
-    radial-gradient(circle at 85% 40%, rgba(200, 80, 30, 0.08), transparent 40%),
-    linear-gradient(to bottom, #120a06 0%, #1a0f08 50%, #0d0704 100%);
-  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
 }
 
-/* Background Ancient Temple Texture Overlay */
-.bg-ambient-layer {
+/* Subtle peaceful marble water-mark texture */
+body::before {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(230, 108, 44, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(184, 134, 40, 0.03) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.18;
-  background-image: url('assets/exhibition_backdrop.jpg');
-  background-size: cover;
-  background-position: center 20%;
-  filter: saturate(1.2) contrast(1.1);
-  mix-blend-mode: luminosity;
-}
-
-/* Header & Navigation Bar */
-.exhibition-nav {
-  position: relative;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 32px;
-  background: linear-gradient(180deg, rgba(20, 10, 5, 0.95), rgba(28, 17, 10, 0.8));
-  border-bottom: 2px solid var(--gold-antique);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.nav-emblem {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid var(--gold-leaf);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle, var(--saffron) 0%, var(--sandstone-deep) 85%);
-  box-shadow: 0 0 12px rgba(242, 156, 42, 0.4);
-}
-
-.nav-emblem svg {
-  width: 22px;
-  height: 22px;
-  fill: var(--gold-bright);
-}
-
-.nav-brand h2 {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  letter-spacing: 3px;
-  color: var(--gold-leaf);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-btn {
-  background: transparent;
-  color: var(--parchment-dim);
-  border: 1px solid rgba(229, 185, 88, 0.3);
-  padding: 6px 16px;
-  border-radius: 4px;
-  font-family: var(--font-title);
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-.nav-btn:hover, .nav-btn.active {
-  color: var(--gold-bright);
-  border-color: var(--gold-leaf);
-  background: rgba(229, 185, 88, 0.12);
-  box-shadow: 0 0 10px rgba(229, 185, 88, 0.25);
-}
-
-.audio-toggle-btn {
-  background: rgba(230, 107, 26, 0.15);
-  border-color: var(--saffron);
 }
 
 /* ==========================================================================
-   HERO / EXHIBITION STALL VIEWPORT (CONTAINERS ON ONE SCREEN)
+   MOBILE HEADER & BRANDING
    ========================================================================== */
 
-.exhibition-stall-viewport {
-  position: relative;
-  z-index: 10;
-  min-height: calc(100vh - 66px);
+.mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--jain-border);
+  padding: 10px 16px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding: 12px 24px 20px;
-  max-width: 1540px;
-  margin: 0 auto;
+  align-items: center;
 }
 
-/* Stall Header */
-.stall-top-header {
-  text-align: center;
-  margin-bottom: 8px;
-  position: relative;
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.arch-ornament-top {
+.jain-emblem-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff7ed 0%, #fee6d2 100%);
+  border: 1.5px solid var(--saffron);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  color: var(--saffron);
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(230, 108, 44, 0.15);
+}
+
+.brand-titles h1 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--ink-primary);
+  line-height: 1.1;
+}
+
+.brand-titles .brand-sub {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--saffron);
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mini-audio-btn {
+  background: var(--jain-surface);
+  border: 1px solid var(--jain-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.mini-audio-btn.active {
+  background: var(--saffron-soft);
+  border-color: var(--saffron);
+  color: var(--saffron);
+}
+
+/* ==========================================================================
+   HERO / EXHIBITION STALL INTRO (MOBILE-OPTIMIZED)
+   ========================================================================== */
+
+.stall-hero-section {
+  position: relative;
+  z-index: 10;
+  padding: 16px 16px 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.jain-blessing-pill {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.jain-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  background: var(--gold-light);
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid rgba(184, 134, 40, 0.2);
+}
+
+.hero-main-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-primary);
+  line-height: 1.2;
   margin-bottom: 4px;
 }
 
-.ornament-line {
-  height: 2px;
-  width: 140px;
-  background: linear-gradient(90deg, transparent, var(--gold-antique), var(--gold-bright), transparent);
-}
-
-.sanskrit-subtitle {
-  font-family: 'Rozha One', var(--font-title);
-  font-size: 1.15rem;
-  letter-spacing: 5px;
-  color: var(--saffron-gold);
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(242, 156, 42, 0.4);
-}
-
-.main-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: 6px;
-  background: linear-gradient(180deg, #fff5d1 0%, #ffd269 40%, #c9932a 75%, #885c15 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.85));
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 2px;
-}
-
-.title-tagline {
-  font-family: var(--font-title);
-  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
-  color: var(--parchment-dim);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-/* Stall Stage Arch & Table */
-.stall-stage {
-  position: relative;
-  background: linear-gradient(180deg, rgba(35, 20, 12, 0.6) 0%, rgba(20, 10, 5, 0.85) 100%);
-  border: 1px solid rgba(229, 185, 88, 0.3);
-  border-radius: 12px;
-  box-shadow: 
-    inset 0 0 60px rgba(0, 0, 0, 0.8),
-    0 15px 40px rgba(0, 0, 0, 0.8);
-  padding: 20px 20px 16px;
-  backdrop-filter: blur(8px);
-}
-
-/* Brass Diya Lamps on Stall Sides */
-.stall-lamp {
-  position: absolute;
-  top: -24px;
-  width: 50px;
-  height: 60px;
-  z-index: 15;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stall-lamp.left {
-  left: 28px;
-}
-
-.stall-lamp.right {
-  right: 28px;
-}
-
-.diya-bowl {
-  width: 38px;
-  height: 18px;
-  background: radial-gradient(circle at 50% 30%, var(--gold-bright), var(--brass-rim));
-  border-radius: 0 0 50% 50% / 0 0 100% 100%;
-  border: 1px solid var(--gold-leaf);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  position: relative;
-}
-
-.diya-stand {
-  width: 8px;
-  height: 12px;
-  background: var(--brass-rim);
-  margin: 0 auto;
-}
-
-.diya-base {
-  width: 26px;
-  height: 6px;
-  background: var(--gold-antique);
-  border-radius: 3px;
-}
-
-.diya-flame {
-  width: 14px;
-  height: 24px;
-  background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffee55 30%, #ff6600 70%, transparent 100%);
-  border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-  position: absolute;
-  top: -18px;
-  left: calc(50% - 7px);
-  filter: drop-shadow(0 0 10px #ff9900) drop-shadow(0 0 20px #ff5500);
-  animation: diyaFlicker 2.5s infinite alternate ease-in-out;
-  transform-origin: center bottom;
-}
-
-@keyframes diyaFlicker {
-  0% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
-  25% { transform: scale(1.06, 1.04) rotate(2deg); opacity: 1; }
-  50% { transform: scale(0.96, 0.98) rotate(-2deg); opacity: 0.9; }
-  75% { transform: scale(1.08, 1.05) rotate(1deg); opacity: 1; }
-  100% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
-}
-
-/* Triple Jar Showcase Grid */
-.containers-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  align-items: stretch;
-  position: relative;
-  z-index: 5;
-}
-
-/* Individual Showcase Unit */
-.jar-station {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: radial-gradient(circle at 50% 25%, rgba(60, 35, 18, 0.4) 0%, rgba(18, 10, 6, 0.7) 100%);
-  border: 1px solid rgba(229, 185, 88, 0.25);
-  border-radius: 10px;
-  padding: 14px 12px 12px;
-  position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-.jar-station:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold-leaf);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(229, 185, 88, 0.15);
-}
-
-/* Sanskrit & Roman Plaque Badge */
-.station-header-badge {
+.hero-tagline {
   text-align: center;
-  margin-bottom: 8px;
-  width: 100%;
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  margin-bottom: 16px;
+  line-height: 1.4;
 }
 
-.station-sanskrit {
-  font-family: 'Rozha One', serif;
-  font-size: 0.95rem;
-  letter-spacing: 2px;
-  color: var(--saffron-gold);
+/* Compact Segment Switcher for 3 Vessels */
+.vessel-tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 6px;
+  background: var(--jain-sandstone);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.station-concept-title {
-  font-family: var(--font-title);
-  font-size: 1.45rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--gold-bright);
-  text-transform: uppercase;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+.vessel-tab-btn {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 7px 4px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
-/* Glass Vessel Wrapper */
-.glass-container-wrapper {
+.vessel-tab-btn.active {
+  background: var(--jain-surface);
+  color: var(--ink-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.vessel-tab-btn.view-all-btn {
+  padding: 7px 10px;
+}
+
+.vessel-tab-btn.view-all-btn.active {
+  background: var(--saffron);
+  color: #fff;
+}
+
+/* ==========================================================================
+   CONTAINERS DISPLAY (SINGLE FOCUS OR ALL 3 ROW)
+   ========================================================================== */
+
+.containers-viewport {
   position: relative;
   width: 100%;
-  max-width: 320px;
-  height: 330px;
+}
+
+/* Single focus card style */
+.vessel-card {
+  display: none;
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px 18px;
+  box-shadow: 0 8px 24px rgba(60, 45, 30, 0.06);
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: fadeInSoft 0.3s ease;
+}
+
+.vessel-card.active-card {
+  display: flex;
+}
+
+/* View All Mode (Clean horizontal scroll or compact cards) */
+.containers-viewport.view-all-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.containers-viewport.view-all-mode .vessel-card {
+  display: flex;
+}
+
+@keyframes fadeInSoft {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Vessel Card Header */
+.vessel-card-header {
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.vessel-jain-label {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--saffron);
+  letter-spacing: 1px;
+}
+
+.vessel-big-title {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.vessel-card[data-type="countable"] .vessel-big-title {
+  color: #d82b6b;
+}
+
+.vessel-card[data-type="uncountable"] .vessel-big-title {
+  color: #3b7a57;
+}
+
+.vessel-card[data-type="infinite"] .vessel-big-title {
+  color: var(--gold);
+}
+
+/* Cute Rounded Glass Container */
+.cute-glass-stage {
+  position: relative;
+  width: 220px;
+  height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* Transparent Glass Vessel Stylings */
-.glass-vessel {
+.cute-glass-jar {
   position: relative;
-  width: 250px;
-  height: 300px;
-  border-radius: 20px 20px 30px 30px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(200, 220, 240, 0.06) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 190px;
+  height: 220px;
+  border-radius: 28px 28px 36px 36px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 240, 230, 0.4) 60%, rgba(235, 225, 210, 0.6) 100%);
+  border: 2px solid rgba(210, 180, 140, 0.4);
   box-shadow: 
-    inset 0 0 25px rgba(255, 255, 255, 0.08),
-    inset 4px 0 12px rgba(255, 255, 255, 0.2),
-    inset -4px 0 12px rgba(0, 0, 0, 0.5),
-    0 15px 35px rgba(0, 0, 0, 0.7);
+    inset 0 0 20px rgba(255, 255, 255, 0.9),
+    inset 3px 0 8px rgba(255, 255, 255, 0.6),
+    inset -3px 0 8px rgba(180, 150, 110, 0.15),
+    0 12px 24px rgba(70, 50, 30, 0.08);
   overflow: hidden;
-  backdrop-filter: blur(1.5px);
 }
 
-/* Brass Lid */
-.jar-brass-lid {
+.cute-jar-lid {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 18px;
+  background: linear-gradient(180deg, #f5ebd7 0%, #dfcbb0 60%, #b89c77 100%);
+  border-radius: 8px 8px 3px 3px;
+  border: 1px solid #c9b294;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.cute-jar-knob {
   position: absolute;
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 170px;
-  height: 22px;
-  background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-antique) 50%, var(--brass-rim) 100%);
-  border-radius: 8px 8px 3px 3px;
-  border: 1px solid var(--gold-leaf);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
-  z-index: 10;
+  width: 22px;
+  height: 11px;
+  background: #dfcbb0;
+  border-radius: 50% 50% 0 0;
+  border: 1px solid #b89c77;
 }
 
-.jar-lid-knob {
+.cute-glass-reflection {
   position: absolute;
-  top: -12px;
+  top: 10px;
+  left: 10px;
+  width: 10px;
+  height: 75%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.1) 80%, transparent 100%);
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.cute-pedestal {
+  position: absolute;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 28px;
+  width: 210px;
   height: 14px;
-  background: radial-gradient(circle at 50% 30%, var(--gold-bright), var(--brass-rim));
-  border-radius: 50% 50% 0 0;
-  border: 1px solid var(--gold-bright);
+  background: linear-gradient(180deg, #eae1d1 0%, #d8caa0 100%);
+  border: 1px solid #cbb890;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  z-index: 2;
 }
 
-/* Glass Optical Refraction Highlight */
-.glass-reflection-streak {
-  position: absolute;
-  top: 15px;
-  left: 14px;
-  width: 16px;
-  height: 82%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.05) 80%, transparent 100%);
-  border-radius: 8px;
-  pointer-events: none;
-  z-index: 8;
-}
-
-.glass-reflection-right {
-  position: absolute;
-  top: 25px;
-  right: 12px;
-  width: 8px;
-  height: 70%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
-  border-radius: 4px;
-  pointer-events: none;
-  z-index: 8;
-}
-
-/* Canvas Inside the Glass Vessel */
 .vessel-canvas {
   width: 100%;
   height: 100%;
@@ -442,484 +423,322 @@ body {
   cursor: pointer;
 }
 
-/* Pedestal Stand Below the Jar */
-.jar-pedestal {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 16px;
-  background: linear-gradient(180deg, #422614 0%, #29170b 50%, #150c05 100%);
-  border: 1px solid var(--gold-antique);
-  border-radius: 4px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9);
-  z-index: 2;
-}
-
-.jar-pedestal::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 6px;
-  right: 6px;
-  height: 1px;
-  background: var(--gold-bright);
-  opacity: 0.5;
-}
-
-/* Container Interaction Controls & Live Readout */
-.station-controls {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.interactive-counter-pill {
-  background: rgba(22, 12, 7, 0.9);
-  border: 1px solid var(--gold-antique);
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-family: var(--font-title);
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  color: var(--gold-bright);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
-}
-
-.interactive-counter-pill span.num {
-  font-weight: 700;
-  color: #fff;
-  font-size: 1rem;
-}
-
-.pill-glow-pink {
-  border-color: #ff65a3;
-  color: #ff99c8;
-}
-
-.pill-glow-cotton {
-  border-color: #c9d6df;
-  color: #e2e8f0;
-}
-
-.pill-glow-sand {
-  border-color: var(--gold-bright);
-  color: #ffd269;
-}
-
-.station-actions-row {
-  display: flex;
-  gap: 8px;
-}
-
-.action-btn-indian {
-  background: linear-gradient(180deg, #3d2313 0%, #24140a 100%);
-  color: var(--parchment);
-  border: 1px solid var(--gold-antique);
-  border-radius: 4px;
-  padding: 5px 12px;
-  font-family: var(--font-title);
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
+/* Compact Live Badge */
+.cute-status-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 10px;
 }
 
-.action-btn-indian:hover {
-  background: linear-gradient(180deg, #57331c 0%, #3a2011 100%);
-  border-color: var(--gold-bright);
-  color: var(--gold-bright);
-  box-shadow: 0 0 10px rgba(229, 185, 88, 0.3);
+.cute-status-pill.pink {
+  background: var(--coral-soft);
+  color: #c71f5a;
+  border: 1px solid #fecdd8;
 }
 
-.action-btn-indian:active {
-  transform: translateY(1px);
+.cute-status-pill.green {
+  background: var(--jain-green-soft);
+  color: var(--jain-green);
+  border: 1px solid #cce8d4;
 }
 
-/* Exhibition Plaque Below Each Vessel */
-.museum-plaque {
-  margin-top: 8px;
-  width: 100%;
-  background: linear-gradient(135deg, rgba(32, 18, 11, 0.8) 0%, rgba(18, 9, 5, 0.95) 100%);
-  border: 1px solid rgba(229, 185, 88, 0.4);
-  border-radius: 6px;
-  padding: 10px 12px;
+.cute-status-pill.gold {
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1px solid #ecdcb8;
+}
+
+/* Touch Action Buttons */
+.cute-btn-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cute-btn {
+  background: var(--jain-marble);
+  border: 1px solid var(--jain-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.cute-btn:active {
+  transform: scale(0.96);
+  background: var(--jain-sandstone);
+}
+
+.cute-btn.primary {
+  background: var(--saffron);
+  color: #fff;
+  border-color: var(--saffron);
+}
+
+/* Card Explainer Text */
+.vessel-caption-card {
+  background: var(--jain-bg);
+  border: 1px solid var(--jain-border-light);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
   text-align: center;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
-  position: relative;
+  width: 100%;
 }
 
-.museum-plaque::before {
-  content: '❖';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--sandstone-mid);
-  color: var(--gold-leaf);
-  font-size: 10px;
-  padding: 0 6px;
+.vessel-caption-card p {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.4;
 }
 
-.plaque-title-label {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 2px;
-  text-transform: uppercase;
-}
-
-.plaque-title-label.countable {
-  color: #ff75a0;
-  text-shadow: 0 0 10px rgba(255, 117, 160, 0.3);
-}
-
-.plaque-title-label.uncountable {
-  color: #d1e8ff;
-  text-shadow: 0 0 10px rgba(209, 232, 255, 0.3);
-}
-
-.plaque-title-label.infinite {
-  color: var(--gold-bright);
-  text-shadow: 0 0 10px rgba(255, 213, 107, 0.4);
-}
-
-.plaque-desc {
-  font-family: var(--font-body);
-  font-size: 0.98rem;
-  line-height: 1.35;
-  color: var(--parchment-dim);
-}
-
-.plaque-metaphor {
-  margin-top: 5px;
-  font-size: 0.88rem;
-  font-style: italic;
-  color: var(--saffron-gold);
-  border-top: 1px dashed rgba(229, 185, 88, 0.25);
+.vessel-jain-note {
+  margin-top: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--gold);
+  border-top: 1px dashed var(--jain-border);
   padding-top: 4px;
 }
 
-/* Exhibition Table Base Frame */
-.stall-table-footer {
-  margin-top: 12px;
+/* Quick Jump Pill to Carbon Dating */
+.jump-to-dating-banner {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #fff7ed 0%, #fff1e6 100%);
+  border: 1.5px solid var(--saffron-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 18px;
-  background: linear-gradient(90deg, #180d07 0%, #2f190d 50%, #180d07 100%);
-  border: 1px solid rgba(229, 185, 88, 0.3);
-  border-radius: 6px;
-  font-size: 0.95rem;
-}
-
-.stall-caption {
-  font-family: var(--font-title);
-  color: var(--parchment-dim);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.scroll-indicator-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--gold-leaf);
   text-decoration: none;
+  color: var(--ink-primary);
+  box-shadow: 0 4px 12px rgba(230, 108, 44, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.jump-to-dating-banner:active {
+  transform: scale(0.98);
+}
+
+.jump-text h4 {
   font-family: var(--font-title);
   font-size: 0.9rem;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
-  animation: pulseGold 2s infinite ease-in-out;
+  color: var(--saffron);
+  font-weight: 700;
 }
 
-.scroll-indicator-link:hover {
-  color: var(--gold-bright);
-  transform: translateY(2px);
+.jump-text p {
+  font-size: 0.76rem;
+  color: var(--ink-secondary);
 }
 
-@keyframes pulseGold {
-  0%, 100% { opacity: 0.8; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(4px); }
-}
-
-/* ==========================================================================
-   SECTION 2: CARBON DATING EDUCATIONAL EXHIBITION WING
-   ========================================================================== */
-
-.carbon-dating-section {
-  position: relative;
-  z-index: 10;
-  padding: 60px 24px 80px;
-  max-width: 1480px;
-  margin: 0 auto;
-}
-
-.section-decorative-divider {
+.jump-arrow {
+  width: 28px;
+  height: 28px;
+  background: var(--saffron);
+  color: #fff;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-.divider-line {
-  height: 2px;
-  width: 250px;
-  background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
-}
-
-.mandala-icon {
-  color: var(--gold-bright);
-  font-size: 1.6rem;
-  animation: rotateSlow 40s linear infinite;
-}
-
-@keyframes rotateSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.section-head-center {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.section-eyebrow {
-  font-family: 'Rozha One', var(--font-title);
-  font-size: 1.1rem;
-  letter-spacing: 4px;
-  color: var(--saffron);
-  text-transform: uppercase;
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
-  color: var(--gold-leaf);
-  letter-spacing: 3px;
-  margin: 6px 0 10px;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-}
-
-.section-description {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1.15rem;
-  color: var(--parchment-dim);
-  line-height: 1.6;
-}
-
-/* Master Infographic Showcase Box */
-.infographic-showcase-card {
-  background: linear-gradient(180deg, rgba(30, 16, 9, 0.85) 0%, rgba(18, 9, 5, 0.95) 100%);
-  border: 1.5px solid var(--gold-antique);
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-  margin-bottom: 36px;
-  backdrop-filter: blur(6px);
-}
-
-.infographic-banner-wrapper {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(229, 185, 88, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  margin-bottom: 22px;
-}
-
-.infographic-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.infographic-banner-wrapper:hover .infographic-img {
-  transform: scale(1.008);
-}
-
-.infographic-img-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(0deg, rgba(12, 6, 3, 0.95) 0%, rgba(12, 6, 3, 0.6) 80%, transparent 100%);
-  padding: 20px 24px 14px;
-  font-family: var(--font-title);
-  font-size: 1rem;
-  color: var(--gold-bright);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 4-Step Interactive Process Cards */
-.carbon-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 15px;
-}
-
-.carbon-step-card {
-  background: rgba(22, 12, 6, 0.75);
-  border: 1px solid rgba(229, 185, 88, 0.25);
-  border-radius: 8px;
-  padding: 18px 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.carbon-step-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: transparent;
-  transition: background 0.3s ease;
-}
-
-.carbon-step-card:hover {
-  background: rgba(38, 20, 10, 0.9);
-  border-color: var(--gold-leaf);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.carbon-step-card.active {
-  background: rgba(45, 23, 11, 0.95);
-  border-color: var(--gold-bright);
-  box-shadow: 0 10px 25px rgba(229, 185, 88, 0.2);
-}
-
-.carbon-step-card.active::before {
-  background: linear-gradient(90deg, var(--saffron), var(--gold-bright));
-}
-
-.step-num-badge {
-  display: inline-block;
-  font-family: var(--font-title);
-  font-size: 0.75rem;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--saffron-gold);
-  background: rgba(230, 107, 26, 0.15);
-  border: 1px solid rgba(242, 156, 42, 0.3);
-  padding: 2px 8px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-}
-
-.step-title {
-  font-family: var(--font-title);
-  font-size: 1.05rem;
-  color: var(--gold-leaf);
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-
-.step-summary-text {
-  font-size: 0.93rem;
-  color: var(--parchment-dim);
-  line-height: 1.45;
 }
 
 /* ==========================================================================
-   INTERACTIVE HALF-LIFE SIMULATOR & RELIC DATING LAB
+   CARBON DATING EDUCATIONAL WING (EASY, CLEAN, MOBILE-FIRST)
    ========================================================================== */
 
-.dating-lab-container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 24px;
-  background: linear-gradient(180deg, rgba(28, 15, 8, 0.9) 0%, rgba(18, 9, 5, 0.95) 100%);
-  border: 1.5px solid var(--gold-antique);
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+.dating-mobile-section {
+  position: relative;
+  z-index: 10;
+  padding: 24px 16px 40px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Left: Interactive Atom Decay Canvas & Time Slider */
-.decay-simulator-box {
+.section-tag-center {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.dating-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.dating-intro {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  margin-bottom: 20px;
+  line-height: 1.45;
+}
+
+/* Mobile Infographic Preview Card with Tap to Zoom */
+.infographic-mobile-card {
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(60, 45, 30, 0.08);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.img-touch-container {
+  position: relative;
+  cursor: pointer;
+  background: #fbf9f5;
+}
+
+.mobile-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tap-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(36, 28, 21, 0.85);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(4px);
 }
 
-.lab-subhead {
+.diagram-caption-footer {
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+  border-top: 1px solid var(--jain-border-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
-  border-bottom: 1px solid rgba(229, 185, 88, 0.25);
-  padding-bottom: 8px;
+  background: var(--jain-card-bg);
 }
 
-.lab-subhead h3 {
-  font-family: var(--font-title);
-  font-size: 1.35rem;
-  color: var(--gold-leaf);
-  letter-spacing: 1.5px;
-}
-
-.atom-legend {
+/* 4 Super Easy Step Cards (Bite-Sized Mobile Layout) */
+.steps-mobile-stack {
   display: flex;
-  gap: 16px;
-  font-size: 0.85rem;
-  font-family: var(--font-sans);
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-.legend-item {
+.step-cute-card {
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.step-cute-card:active {
+  transform: scale(0.98);
+}
+
+.step-cute-card.highlighted {
+  border-color: var(--saffron);
+  background: #fffbf8;
+}
+
+.step-cute-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
-.dot-c14 {
-  width: 10px;
-  height: 10px;
-  background: #39e75f;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #39e75f;
+.step-cute-icon.step1 { background: #fff3e0; }
+.step-cute-icon.step2 { background: #e8f5e9; }
+.step-cute-icon.step3 { background: #fce4ec; }
+.step-cute-icon.step4 { background: #e3f2fd; }
+
+.step-cute-info h4 {
+  font-family: var(--font-title);
+  font-size: 0.92rem;
+  color: var(--ink-primary);
+  margin-bottom: 2px;
 }
 
-.dot-n14 {
-  width: 10px;
-  height: 10px;
-  background: #3b82f6;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #3b82f6;
+.step-cute-info p {
+  font-size: 0.8rem;
+  color: var(--ink-secondary);
+  line-height: 1.35;
 }
 
-.atom-canvas-frame {
+/* Simplified Interactive Relic Dating Laboratory */
+.dating-lab-mobile {
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  box-shadow: 0 8px 24px rgba(60, 45, 30, 0.06);
+  margin-bottom: 24px;
+}
+
+.lab-mobile-head {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.lab-mobile-head h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--ink-primary);
+  margin-bottom: 2px;
+}
+
+.lab-mobile-head p {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+/* Mobile Atom Canvas */
+.atom-canvas-mobile-wrap {
   position: relative;
   width: 100%;
-  height: 250px;
-  background: #090503;
-  border: 1px solid rgba(229, 185, 88, 0.3);
-  border-radius: 8px;
+  height: 170px;
+  background: #18120c;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: 16px;
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.95);
+  margin-bottom: 12px;
+  border: 1.5px solid var(--jain-border);
 }
 
 #decayAtomCanvas {
@@ -928,371 +747,431 @@ body {
   display: block;
 }
 
-.canvas-overlay-stat {
+.atom-legend-mobile {
   position: absolute;
-  top: 10px;
-  right: 12px;
-  background: rgba(14, 8, 4, 0.85);
-  border: 1px solid var(--gold-antique);
-  border-radius: 4px;
-  padding: 4px 10px;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--parchment);
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 10px;
+  background: rgba(24, 18, 12, 0.8);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  color: #fff;
 }
 
-/* Time Slider Controls */
-.time-slider-widget {
-  background: rgba(20, 10, 5, 0.8);
-  border: 1px solid rgba(229, 185, 88, 0.2);
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
+.atom-count-pill {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(24, 18, 12, 0.8);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  color: #fff;
 }
 
-.slider-label-row {
+/* Mobile Friendly Slider */
+.slider-touch-block {
+  background: var(--jain-card-bg);
+  border: 1px solid var(--jain-border-light);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.slider-top-labels {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.slider-name {
-  font-family: var(--font-title);
-  font-size: 1.05rem;
-  color: var(--gold-bright);
+.slider-top-labels .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
 }
 
-.slider-value-display {
+.slider-top-labels .val {
   font-family: var(--font-sans);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255, 213, 107, 0.5);
+  color: var(--saffron);
 }
 
-.custom-range-slider {
+.mobile-slider {
   width: 100%;
   height: 8px;
-  background: #25140b;
   border-radius: 4px;
+  background: var(--jain-sandstone);
   outline: none;
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
-  border: 1px solid var(--gold-antique);
 }
 
-.custom-range-slider::-webkit-slider-thumb {
+.mobile-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--gold-bright) 0%, var(--saffron) 100%);
-  border: 2px solid #fff;
+  background: var(--saffron);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(230, 108, 44, 0.5);
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(255, 153, 0, 0.8);
-  transition: transform 0.15s ease;
 }
 
-.custom-range-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-}
-
-.slider-milestones {
+.slider-ticks {
   display: flex;
   justify-content: space-between;
-  font-size: 0.78rem;
-  color: var(--parchment-dim);
-  font-family: var(--font-sans);
-  margin-top: 6px;
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
 }
 
-/* Quick Historic Artifact Presets */
-.preset-artifacts-wrap {
-  margin-top: 6px;
-}
-
-.preset-title-label {
-  font-family: var(--font-title);
-  font-size: 0.88rem;
-  letter-spacing: 1px;
-  color: var(--parchment-dim);
+/* Relic Quick-Tap Pills */
+.relic-pills-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
   margin-bottom: 8px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.preset-btns-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.preset-btn {
-  background: rgba(30, 16, 9, 0.8);
-  border: 1px solid rgba(229, 185, 88, 0.35);
-  border-radius: 4px;
-  color: var(--parchment);
-  font-family: var(--font-title);
-  font-size: 0.82rem;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.preset-btn:hover {
-  border-color: var(--gold-leaf);
-  background: rgba(50, 26, 14, 0.9);
-  color: var(--gold-bright);
-}
-
-/* Right: Scientific Readout & Mathematical Decay Panel */
-.lab-readout-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.metrics-dashboard-grid {
+.relic-pills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 6px;
+  margin-bottom: 14px;
 }
 
-.metric-card {
-  background: rgba(18, 10, 5, 0.8);
-  border: 1px solid rgba(229, 185, 88, 0.25);
-  border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-}
-
-.metric-title {
-  font-family: var(--font-sans);
+.relic-pill-btn {
+  background: var(--jain-marble);
+  border: 1px solid var(--jain-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
   font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--saffron-gold);
-  margin-bottom: 4px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
 }
 
-.metric-val {
-  font-family: var(--font-sans);
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: #fff;
+.relic-pill-btn:active {
+  background: var(--saffron-soft);
+  border-color: var(--saffron);
+  color: var(--saffron);
 }
 
-.metric-sub {
-  font-size: 0.8rem;
-  color: var(--parchment-dim);
-  margin-top: 2px;
-}
-
-/* Mathematical Formula Card */
-.formula-parchment-card {
-  background: linear-gradient(135deg, rgba(38, 20, 10, 0.8) 0%, rgba(20, 10, 5, 0.9) 100%);
-  border: 1px solid var(--gold-antique);
-  border-radius: 8px;
-  padding: 14px 16px;
-  position: relative;
-}
-
-.formula-parchment-card h4 {
-  font-family: var(--font-title);
-  font-size: 0.95rem;
-  color: var(--gold-leaf);
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-
-.formula-box {
-  background: #100804;
-  border: 1px dashed var(--gold-antique);
-  border-radius: 6px;
-  padding: 10px;
-  text-align: center;
-  font-family: 'Times New Roman', serif;
-  font-size: 1.25rem;
-  color: var(--gold-bright);
-  margin-bottom: 8px;
-}
-
-.formula-explanation {
-  font-size: 0.88rem;
-  color: var(--parchment-dim);
-  line-height: 1.4;
-}
-
-/* Archaeological Significance Box */
-.archaeology-insight-box {
-  background: rgba(230, 107, 26, 0.08);
-  border-left: 3px solid var(--saffron);
-  border-radius: 0 8px 8px 0;
-  padding: 12px 14px;
-}
-
-.archaeology-insight-box h4 {
-  font-family: var(--font-title);
-  font-size: 0.95rem;
-  color: var(--saffron-gold);
-  margin-bottom: 4px;
-}
-
-.archaeology-insight-box p {
-  font-size: 0.92rem;
-  color: var(--parchment-dim);
-  line-height: 1.45;
-}
-
-/* ==========================================================================
-   ANCIENT INDIAN MATHEMATICS & CHRONOLOGY ACCORDION
-   ========================================================================== */
-
-.vedic-wisdom-strip {
-  margin-top: 40px;
-  background: linear-gradient(180deg, rgba(25, 13, 7, 0.8) 0%, rgba(15, 8, 4, 0.9) 100%);
-  border: 1px solid rgba(229, 185, 88, 0.3);
-  border-radius: 10px;
-  padding: 24px;
-}
-
-.vedic-strip-head {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.vedic-strip-head h3 {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  color: var(--gold-bright);
-  letter-spacing: 2px;
-}
-
-.vedic-cards-grid {
+/* Simple 2-Card Readout */
+.mobile-readout-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.vedic-card {
-  background: rgba(18, 10, 5, 0.7);
-  border: 1px solid rgba(229, 185, 88, 0.2);
-  border-radius: 6px;
-  padding: 16px;
-  position: relative;
-}
-
-.vedic-card h4 {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  color: var(--gold-leaf);
-  margin-bottom: 6px;
-}
-
-.vedic-card p {
-  font-size: 0.92rem;
-  color: var(--parchment-dim);
-  line-height: 1.45;
-}
-
-/* Footer */
-.exhibition-site-footer {
-  position: relative;
-  z-index: 10;
-  border-top: 2px solid var(--gold-antique);
-  background: linear-gradient(180deg, #160b06 0%, #0c0603 100%);
-  padding: 30px 24px;
-  text-align: center;
-}
-
-.footer-mandala {
-  color: var(--gold-leaf);
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-}
-
-.footer-title {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  color: var(--gold-bright);
-  letter-spacing: 2px;
-  margin-bottom: 4px;
-}
-
-.footer-sub {
-  font-size: 0.95rem;
-  color: var(--parchment-dim);
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-bottom: 12px;
 }
 
-.footer-disclaimer {
-  font-size: 0.8rem;
-  color: rgba(246, 239, 226, 0.5);
+.readout-card {
+  background: var(--jain-card-bg);
+  border: 1px solid var(--jain-border-light);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  text-align: center;
+}
+
+.readout-card .r-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.readout-card .r-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 2px 0;
+}
+
+.readout-card .r-sub {
+  font-size: 0.68rem;
+  color: var(--ink-secondary);
+}
+
+/* Simple Era Insight Card */
+.era-insight-card {
+  background: var(--saffron-soft);
+  border: 1.5px solid var(--saffron-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+
+.era-insight-card h5 {
+  font-size: 0.75rem;
+  color: var(--saffron);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.era-insight-card p {
+  font-size: 0.82rem;
+  color: var(--ink-primary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Ancient Jain Math Connection */
+.jain-math-accordion {
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.jain-math-head {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.jain-math-head h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink-primary);
+}
+
+.jain-points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.jain-point {
+  background: var(--jain-bg);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  border-left: 3px solid var(--gold);
+}
+
+.jain-point strong {
+  font-size: 0.85rem;
+  color: var(--ink-primary);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.jain-point span {
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+  line-height: 1.35;
+  display: block;
+}
+
+/* Footer */
+.mobile-site-footer {
+  text-align: center;
+  padding: 30px 16px 40px;
+  border-top: 1px solid var(--jain-border);
+  background: #f7f3ec;
+}
+
+.footer-jain-symbol {
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.footer-name {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ink-primary);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN & ADAPTATIONS
+   IMAGE LIGHTBOX MODAL (FOR MOBILE VIEWING)
    ========================================================================== */
 
-@media (max-width: 1100px) {
-  .containers-showcase-grid {
-    gap: 14px;
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 15, 10, 0.94);
+  z-index: 1000;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-modal.open {
+  display: flex;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-img-wrapper {
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lightbox-tip {
+  color: #fff;
+  font-size: 0.78rem;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   TABLET / DESKTOP ENHANCEMENTS
+   ========================================================================== */
+
+@media (min-width: 601px) {
+  .stall-hero-section,
+  .dating-mobile-section {
+    max-width: 800px;
+    padding: 24px 24px 36px;
   }
 
-  .glass-container-wrapper {
-    height: 300px;
+  .vessel-tabs-nav {
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .glass-vessel {
-    width: 220px;
-    height: 270px;
+  .containers-viewport.view-all-mode {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
-  .carbon-steps-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .relic-pills-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .dating-lab-container {
-    grid-template-columns: 1fr;
-  }
-
-  .vedic-cards-grid {
-    grid-template-columns: 1fr;
+  .steps-mobile-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 }
 
-@media (max-width: 768px) {
-  .exhibition-stall-viewport {
-    padding: 10px 12px 20px;
-  }
 
-  .containers-showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+/* ==========================================================================
+   YOUTUBE VIDEO PREVIEW & LINK SECTION
+   ========================================================================== */
 
-  .glass-container-wrapper {
-    height: 280px;
-  }
+.video-preview-section {
+  position: relative;
+  z-index: 10;
+  padding: 10px 16px 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  .glass-vessel {
-    width: 230px;
-    height: 250px;
-  }
+.video-card-mobile {
+  background: var(--jain-surface);
+  border: 1.5px solid var(--jain-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  box-shadow: 0 8px 24px rgba(60, 45, 30, 0.06);
+}
 
-  .carbon-steps-grid {
-    grid-template-columns: 1fr;
-  }
+.video-head-mobile {
+  text-align: center;
+  margin-bottom: 12px;
+}
 
-  .exhibition-nav {
-    padding: 10px 16px;
-    flex-direction: column;
-    gap: 10px;
-  }
+.video-head-mobile h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--ink-primary);
+  margin-bottom: 2px;
+}
 
-  .metrics-dashboard-grid {
-    grid-template-columns: 1fr;
-  }
+.video-head-mobile p {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.video-iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--jain-border-light);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 12px;
+}
+
+.video-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-link-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.video-link-action-btn:hover {
+  background: #d60000;
+  transform: translateY(-1px);
 }
