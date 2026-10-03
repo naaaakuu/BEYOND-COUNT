@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEYOND COUNT | Indian Ancient Science Exhibition</title>
+  
+  <!-- Google Fonts for Ancient Indian & Classical Exhibition Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&family=Rozha+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Ancient Indian Architecture Layer -->
+  <div class="bg-ambient-layer" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="exhibition-nav">
+    <div class="nav-brand">
+      <div class="nav-emblem" title="Vedic Wheel of Time">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div>
+        <h2>BEYOND COUNT</h2>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#exhibitionStall" class="nav-btn active">
+        <span>❖</span> Exhibition Stall
+      </a>
+      <a href="#carbonDatingWing" class="nav-btn">
+        <span>⏳</span> Carbon Dating Wing
+      </a>
+      <button id="audioToggleBtn" class="nav-btn audio-toggle-btn" title="Toggle ambient Indian Tanpura drone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+        Ambiance: Muted
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       SECTION 1: THE EXHIBITION STALL (ALL 3 CONTAINERS ON ONE SCREEN)
+       ======================================================================== -->
+  <main id="exhibitionStall" class="exhibition-stall-viewport">
+    
+    <!-- Grand Pavilion Top Header -->
+    <header class="stall-top-header">
+      <div class="arch-ornament-top">
+        <div class="ornament-line"></div>
+        <span class="sanskrit-subtitle">॥ गणनानन्तरम् ॥</span>
+        <div class="ornament-line"></div>
+      </div>
+      <h1 class="main-title">BEYOND COUNT</h1>
+      <p class="title-tagline">An Ancient Indian Journey Through Number, Infinity & Deep Time</p>
+    </header>
+
+    <!-- Exhibition Pavilion Stage Table -->
+    <section class="stall-stage">
+      
+      <!-- Traditional Brass Diya Oil Lamps with Flickering Glow -->
+      <div class="stall-lamp left" aria-hidden="true">
+        <div class="diya-flame"></div>
+        <div class="diya-bowl"></div>
+        <div class="diya-stand"></div>
+        <div class="diya-base"></div>
+      </div>
+
+      <div class="stall-lamp right" aria-hidden="true">
+        <div class="diya-flame"></div>
+        <div class="diya-bowl"></div>
+        <div class="diya-stand"></div>
+        <div class="diya-base"></div>
+      </div>
+
+      <!-- Showcase: Three Transparent Vessels -->
+      <div class="containers-showcase-grid">
+
+        <!-- ================= CONTAINER 1: COUNTABLE ================= -->
+        <article class="jar-station" id="stationCountable">
+          <div class="station-header-badge">
+            <div class="station-sanskrit">साङ्ख्य • Sāṅkhya</div>
+            <div class="station-concept-title">Vessel I</div>
+          </div>
+
+          <!-- Glass Vessel Frame -->
+          <div class="glass-container-wrapper">
+            <div class="jar-brass-lid">
+              <div class="jar-lid-knob"></div>
+            </div>
+            
+            <div class="glass-vessel">
+              <div class="glass-reflection-streak"></div>
+              <div class="glass-reflection-right"></div>
+              <canvas id="countableCanvas" class="vessel-canvas" title="Click anywhere inside to drop new pink balls"></canvas>
+            </div>
+
+            <div class="jar-pedestal"></div>
+          </div>
+
+          <!-- Interactive Controls & Live Counter -->
+          <div class="station-controls">
+            <div class="interactive-counter-pill pill-glow-pink">
+              <span>BALL COUNT:</span>
+              <span id="countableNumDisplay" class="num">24</span>
+            </div>
+            
+            <div class="station-actions-row">
+              <button id="shakeJarBtn" class="action-btn-indian" title="Shake the jar to bounce balls">
+                <span>⚡</span> Shake Jar
+              </button>
+              <button id="addBallBtn" class="action-btn-indian" title="Drop another pink ball">
+                <span>+</span> Add Ball
+              </button>
+              <button id="resetBallsBtn" class="action-btn-indian" title="Reset ball count">
+                <span>↺</span> Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Museum Plaque Label -->
+          <div class="museum-plaque">
+            <h3 class="plaque-title-label countable">COUNTABLE</h3>
+            <p class="plaque-desc">
+              Discrete, tangible units with distinct boundaries. Each pink sphere can be individually identified, enumerated, and tallied: <em>1, 2, 3... to N</em>.
+            </p>
+            <div class="plaque-metaphor">
+              Vedic Mathematics: <em>Sankhyeya</em> (finite, enumerable reality)
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CONTAINER 2: UNCOUNTABLE ================= -->
+        <article class="jar-station" id="stationUncountable">
+          <div class="station-header-badge">
+            <div class="station-sanskrit">असंख्येय • Asaṅkhyeya</div>
+            <div class="station-concept-title">Vessel II</div>
+          </div>
+
+          <!-- Glass Vessel Frame -->
+          <div class="glass-container-wrapper">
+            <div class="jar-brass-lid">
+              <div class="jar-lid-knob"></div>
+            </div>
+            
+            <div class="glass-vessel">
+              <div class="glass-reflection-streak"></div>
+              <div class="glass-reflection-right"></div>
+              <canvas id="uncountableCanvas" class="vessel-canvas" title="Hover or click to disturb cotton filaments"></canvas>
+            </div>
+
+            <div class="jar-pedestal"></div>
+          </div>
+
+          <!-- Interactive Controls -->
+          <div class="station-controls">
+            <div class="interactive-counter-pill pill-glow-cotton">
+              <span>STRUCTURE:</span>
+              <span class="num">Tangled Resha</span>
+            </div>
+            
+            <div class="station-actions-row">
+              <button id="puffCottonBtn" class="action-btn-indian" title="Send a gentle puff of air">
+                <span>💨</span> Puff Air
+              </button>
+              <button id="inspectCottonBtn" class="action-btn-indian" title="Toggle fiber illumination">
+                <span>🔍</span> Illuminate
+              </button>
+            </div>
+          </div>
+
+          <!-- Museum Plaque Label -->
+          <div class="museum-plaque">
+            <h3 class="plaque-title-label uncountable">UNCOUNTABLE</h3>
+            <p class="plaque-desc">
+              Tens of thousands of intertwined micro-filaments of cotton (<em>Resha</em>). Though finite in total substance, they defy individual human enumeration.
+            </p>
+            <div class="plaque-metaphor">
+              Jain Mathematics: <em>Asankhyeya</em> (immeasurable by observation)
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CONTAINER 3: INFINITE ================= -->
+        <article class="jar-station" id="stationInfinite">
+          <div class="station-header-badge">
+            <div class="station-sanskrit">अनन्त • Ananta</div>
+            <div class="station-concept-title">Vessel III</div>
+          </div>
+
+          <!-- Glass Vessel Frame -->
+          <div class="glass-container-wrapper">
+            <div class="jar-brass-lid">
+              <div class="jar-lid-knob"></div>
+            </div>
+            
+            <div class="glass-vessel">
+              <div class="glass-reflection-streak"></div>
+              <div class="glass-reflection-right"></div>
+              <canvas id="infiniteCanvas" class="vessel-canvas" title="Click or drag to swirl endless sand grains"></canvas>
+            </div>
+
+            <div class="jar-pedestal"></div>
+          </div>
+
+          <!-- Interactive Controls -->
+          <div class="station-controls">
+            <div class="interactive-counter-pill pill-glow-sand">
+              <span>CARDINALITY:</span>
+              <span class="num">∞ (Perpetual)</span>
+            </div>
+            
+            <div class="station-actions-row">
+              <button id="stirSandBtn" class="action-btn-indian" title="Swirl sand cascade">
+                <span>🌪️</span> Stir Sand
+              </button>
+              <button id="cosmicInfinityBtn" class="action-btn-indian" title="Explore ancient verse of infinity">
+                <span>✦</span> Cosmic Verse
+              </button>
+            </div>
+          </div>
+
+          <!-- Museum Plaque Label -->
+          <div class="museum-plaque">
+            <h3 class="plaque-title-label infinite">INFINITE</h3>
+            <p class="plaque-desc">
+              A perpetual cascade of golden earth and sand grains. Evoking the ancient metaphor of <em>Ganga-valuka</em>—the inexhaustible sands of the holy river Ganga.
+            </p>
+            <div class="plaque-metaphor">
+              Upanishadic Wisdom: <em>Ananta & Purna</em> (boundless & complete)
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Stall Footer Plaque & Jump Link -->
+      <footer class="stall-table-footer">
+        <div class="stall-caption">
+          <span>🏛️ Science Exhibition Stall:</span>
+          <span>Pavilion of Philosophical & Physical Counting</span>
+        </div>
+        <a href="#carbonDatingWing" class="scroll-indicator-link">
+          <span>Explore How We Date The Uncounted Past (Carbon Dating)</span>
+          <span>↓</span>
+        </a>
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       SECTION 2: CARBON DATING EDUCATIONAL WING
+       ======================================================================== -->
+  <section id="carbonDatingWing" class="carbon-dating-section">
+    
+    <div class="section-decorative-divider">
+      <div class="divider-line"></div>
+      <div class="mandala-icon">☸</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="section-head-center">
+      <span class="section-eyebrow">॥ कालगणना • Chronometry of the Ancients ॥</span>
+      <h2 class="section-title">CARBON DATING: COUNTING THE UNRECORDED PAST</h2>
+      <p class="section-description">
+        When an ancient wooden pillar from Ashoka's capital or a Harappan relic is excavated from the earth, centuries have blurred beyond all historical recollection. How does science count time when no calendar survived? By counting the silent, ticking atomic clock of <strong>Carbon-14</strong>.
+      </p>
+    </div>
+
+    <!-- Master Infographic Poster Showcase -->
+    <div class="infographic-showcase-card">
+      <div class="infographic-banner-wrapper">
+        <img 
+          src="assets/carbon_dating_diagram.jpg" 
+          alt="Visual scientific infographic explaining Radiocarbon Dating (Carbon-14 cycle, living biomass absorption, exponential decay curve, and archaeological mass spectrometry)" 
+          class="infographic-img"
+        >
+        <div class="infographic-img-caption">
+          <span><strong>Fig 1:</strong> The Cosmic & Biological Cycle of Carbon-14 (Radiocarbon Chronology)</span>
+          <span>Half-Life: 5,730 ± 40 Years</span>
+        </div>
+      </div>
+
+      <!-- 4-Stage Interactive Process Walkthrough -->
+      <div class="carbon-steps-grid">
+        
+        <div class="carbon-step-card active" data-step="1">
+          <div class="step-num-badge">STEP 01</div>
+          <h3 class="step-title">Cosmic Ray Creation</h3>
+          <p class="step-summary-text">
+            High-energy cosmic neutrons strike atmospheric Nitrogen-14 (<sup>14</sup>N) in the upper sky, transforming it into radioactive Carbon-14 (<sup>14</sup>C). This oxidizes into <sup>14</sup>CO<sub>2</sub>.
+          </p>
+        </div>
+
+        <div class="carbon-step-card" data-step="2">
+          <div class="step-num-badge">STEP 02</div>
+          <h3 class="step-title">Living Assimilation</h3>
+          <p class="step-summary-text">
+            Plants absorb <sup>14</sup>CO<sub>2</sub> during photosynthesis; animals consume plants. Throughout an organism's lifetime, its ratio of <sup>14</sup>C to stable <sup>12</sup>C remains identical to the atmosphere.
+          </p>
+        </div>
+
+        <div class="carbon-step-card" data-step="3">
+          <div class="step-num-badge">STEP 03</div>
+          <h3 class="step-title">Clock Starts at Death</h3>
+          <p class="step-summary-text">
+            The moment a tree falls or an animal dies, carbon intake ceases. Stable Carbon-12 stays unchanged, but Carbon-14 decays exponentially through beta decay back into Nitrogen-14 with a half-life of <strong>5,730 years</strong>.
+          </p>
+        </div>
+
+        <div class="carbon-step-card" data-step="4">
+          <div class="step-num-badge">STEP 04</div>
+          <h3 class="step-title">Archaeological Dating</h3>
+          <p class="step-summary-text">
+            By measuring the surviving fraction of Carbon-14 using Accelerator Mass Spectrometry (AMS), archaeologists calculate exactly how many thousands of years have elapsed since the organic material died.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Interactive Atom Decay Lab & Time Slider -->
+    <div class="dating-lab-container">
+      
+      <!-- Left: Interactive Atom Detector Chamber & Slider -->
+      <div class="decay-simulator-box">
+        <div class="lab-subhead">
+          <h3>Interactive Radiocarbon Chamber</h3>
+          <div class="atom-legend">
+            <div class="legend-item">
+              <span class="dot-c14"></span>
+              <span>Active <sup>14</sup>C</span>
+            </div>
+            <div class="legend-item">
+              <span class="dot-n14"></span>
+              <span>Decayed <sup>14</sup>N</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Atom Canvas Display -->
+        <div class="atom-canvas-frame">
+          <canvas id="decayAtomCanvas"></canvas>
+          <div id="canvasAtomCountDisplay" class="canvas-overlay-stat">180 C-14 / 0 N-14</div>
+        </div>
+
+        <!-- Interactive Time Slider Widget -->
+        <div class="time-slider-widget">
+          <div class="slider-label-row">
+            <span class="slider-name">Elapsed Age Since Death:</span>
+            <span id="sliderTimeValue" class="slider-value-display">0 Years</span>
+          </div>
+
+          <input 
+            type="range" 
+            id="datingTimeSlider" 
+            class="custom-range-slider" 
+            min="0" 
+            max="50000" 
+            step="100" 
+            value="0"
+          >
+
+          <div class="slider-milestones">
+            <span>0 yr (Alive)</span>
+            <span>5,730 yr (1 t½)</span>
+            <span>11,460 yr (2 t½)</span>
+            <span>17,190 yr (3 t½)</span>
+            <span>50,000 yr (Limit)</span>
+          </div>
+        </div>
+
+        <!-- Historical Indian Artifact Quick Presets -->
+        <div class="preset-artifacts-wrap">
+          <div class="preset-title-label">Test Real Indian Archaeological Discoveries:</div>
+          <div class="preset-btns-flex">
+            <button id="presetModern" class="preset-btn" title="Living fresh wood">Living Sample (0 yr)</button>
+            <button id="presetBakhshali" class="preset-btn" title="Oxford dated birch bark with early zero symbol">Bakhshali Manuscript (~1,720 yr)</button>
+            <button id="presetAshoka" class="preset-btn" title="Maurya Capital Pataliputra Timber">Ashokan Palisade (~2,320 yr)</button>
+            <button id="presetHarappa" class="preset-btn" title="Indus Valley Wooden Relic">Rakhigarhi Harappan (~4,500 yr)</button>
+            <button id="presetBhimbetka" class="preset-btn" title="Prehistoric Rock Shelter Charcoal">Bhimbetka Caves (~10,000 yr)</button>
+            <button id="presetPaleo" class="preset-btn" title="Ancient Pleistocene bone">Paleolithic Fossil (~35,000 yr)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Real-time Scientific Metrics & Formula Card -->
+      <div class="lab-readout-panel">
+        
+        <div class="metrics-dashboard-grid">
+          <div class="metric-card">
+            <div class="metric-title">Remaining <sup>14</sup>C</div>
+            <div id="statRemainingC14" class="metric-val" style="color: #39e75f;">100.0%</div>
+            <div class="metric-sub">Active radioactive atoms</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-title">Decayed to <sup>14</sup>N</div>
+            <div id="statDecayedN14" class="metric-val" style="color: #60a5fa;">0.0%</div>
+            <div class="metric-sub">Stable nitrogen daughter</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-title">Half-Lives Elapsed</div>
+            <div id="statHalfLivesElapsed" class="metric-val" style="color: var(--gold-bright);">0.00 t½</div>
+            <div class="metric-sub">Units of 5,730 years</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-title">Detection Threshold</div>
+            <div class="metric-val" style="color: #f59e0b;">50,000 Yrs</div>
+            <div class="metric-sub">Max viable limit (~10 half-lives)</div>
+          </div>
+        </div>
+
+        <!-- Mathematical Formula Card -->
+        <div class="formula-parchment-card">
+          <h4>The Radioactive Decay Law</h4>
+          <div id="formulaCurrentVal" class="formula-box">
+            N(t) = N₀ × (½)<sup>(t / 5730)</sup>
+          </div>
+          <p class="formula-explanation">
+            Where <strong>N(t)</strong> is remaining Carbon-14, <strong>N₀</strong> is the original equilibrium level, and <strong>t</strong> is elapsed time. Every 5,730 years, exactly 50% of remaining atoms decay.
+          </p>
+        </div>
+
+        <!-- Archaeological Chronology Significance Box -->
+        <div class="archaeology-insight-box">
+          <h4>Identified Chronological Horizon:</h4>
+          <p id="statHistoricalEra" style="font-weight: 600; color: #fff;">
+            Modern Biomass (100% C-14 equilibrium)
+          </p>
+          <p style="margin-top: 6px; font-size: 0.85rem;">
+            When Willard Libby invented radiocarbon dating in 1949 (awarded the 1960 Nobel Prize in Chemistry), it revolutionized archaeology by establishing absolute dates for prehistoric human cultures across the Indian subcontinent.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Ancient Indian Mathematics & Chronology Accordion -->
+    <div class="vedic-wisdom-strip">
+      <div class="vedic-strip-head">
+        <h3>How Ancient India Conceived Numbers & Infinity</h3>
+      </div>
+      <div class="vedic-cards-grid">
+        <div class="vedic-card">
+          <h4>1. Sāṅkhyeya (Countable)</h4>
+          <p>
+            In the <em>Jain Mathematical Canon</em> (c. 500 BCE) and the <em>Sulba Sutras</em>, numbers were classified starting with finite, distinct quantities that can be counted step by step.
+          </p>
+        </div>
+        <div class="vedic-card">
+          <h4>2. Asaṅkhyeya (Uncountable)</h4>
+          <p>
+            Quantities that have definite bounds but are beyond human observational counting (like the grains of cotton fiber or leaves in a forest). Ancient Indian scholars created massive named powers of ten up to 10<sup>140</sup> (such as <em>Asankhyeya</em> and <em>Tallakshana</em>) to express them.
+          </p>
+        </div>
+        <div class="vedic-card">
+          <h4>3. Ananta (The Infinite)</h4>
+          <p>
+            Mathematicians like Brahmagupta (628 CE) and Bhāskara II (1150 CE) recognized <em>Khahara</em>—a number divided by zero becomes infinity. The Isha Upanishad declared: subtracting infinity from infinity still leaves infinity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="exhibition-site-footer">
+    <div class="footer-mandala">☸ ❖ ☸</div>
+    <div class="footer-title">BEYOND COUNT • विज्ञान प्रदर्शनी</div>
+    <p class="footer-sub">A Science Exhibition on the Continuum of Measurement — From Atoms to Infinity</p>
+    <div class="footer-disclaimer">
+      Science Exhibition Project • Crafted with HTML5 Canvas Physics, Web Audio & Radiocarbon Chronometry
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script src="carbon-dating.js"></script>
+</body>
+</html>
